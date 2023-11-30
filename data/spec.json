@@ -1,0 +1,122 @@
+{
+	"identifier" : "dichasus-dcxx",
+	"name" : "Institute hallway with known 3D model, distributed antennas",
+	"shortDescription" : "Two separate antenna arrays with 64 antennas in total observe a transmitter in a hallway with known 3D model, ideal for raytracing experiments.",
+	"bandwidth" : 50e6,
+	"frequency" : 3438000000,
+	"outdoor" : false,
+	"year" : 2023,
+	"warnings" : [
+		"This dataset is currently still being processed.",
+		"A 3D model of the hallway will be made available alongside the dataset."
+	],
+	"antennas" : [
+		{
+			"name" : "North wing antenna array",
+			"type" : "array",
+			"spacingX" : 0.04364,
+			"spacingY" : 0.04364,
+			"assignments" : [
+				[58, 12, 24, 29, 16, 2, 33, 38],
+				[57, 7, 45, 18, 42, 52, 28, 21],
+				[63, 13, 55, 37, 46, 50, 43, 51],
+				[34, 9, 36, 32, 22, 62, 39, 10]
+			],
+			"location" : [7.480775, -20.9824, 1.39335],
+			"direction" : [-0.30928047, 0.9508464, -0.01538569]
+		},
+		{
+			"name" : "South wing antenna array",
+			"type" : "array",
+			"spacingX" : 0.04364,
+			"spacingY" : 0.04364,
+			"assignments" : [
+				[60, 54, 6, 17, 49, 20, 5, 19],
+				[40, 8, 0, 27, 41, 25, 23, 56],
+				[44, 53, 61, 59, 48, 35, 1, 26],
+				[3, 11, 47, 30, 14, 4, 15, 31]
+			],
+			"location" : [-6.390425, 24.440075, 1.4197],
+			"direction" : [0.23178338, -0.97276149, -0.00339935]
+		}
+	],
+	"format" : {
+		"csi" : {
+			"description" : "Channel coefficients for all antennas, over all subcarriers, real and imaginary parts",
+			"type" : "tensor"
+		},
+		"snr" : {
+			"description" : "Signal-to-Noise ratio estimates for all antennas",
+			"type" : "tensor"
+		},
+		"pos-tachy" : {
+			"description" : "Position of transmitter determined by a tachymeter pointed at a prism mounted on top of the antenna, in meters (X / Y / Z coordinates)",
+			"type" : "tensor64"
+		},
+		"gt-interp-age-tachy" : {
+			"description" : "Time in seconds to closest known tachymeter position. Indicates quality of linear interpolation.",
+			"type" : "float32"
+		},
+		"time" : {
+			"description" : "Timestamp since start of measurement campaign, in seconds",
+			"type" : "float32"
+		},
+		"cfo" : {
+			"description" : "Measured carrier frequency offset between MOBTX and each receive antenna.",
+			"type" : "tensor"
+		}
+	},
+	"tfrecords" : [
+		{
+			"filename" : "tfrecords/dichasus-dc40.tfrecords",
+			"description" : "Robot follows a pseudorandom trajectory in the central \"lobby\" area of the hallway, partly LoS and partly NLoS. No obstacles in the hallway. Gain of all receivers is 66dB."
+		},
+		{
+			"filename" : "tfrecords/dichasus-dc41.tfrecords",
+			"description" : "Robot follows the \"T-Rex\" trajectory in the central \"lobby\" area of the hallway, partly LoS and partly NLoS. No obstacles in the hallway. Gain of all receivers is 66dB."
+		}
+	],
+	"photos" : [
+		{
+			"filename" : "photos/northwing-array-hallway-obstacle.jpg",
+			"description" : "Close-up photo of MOBTX robot in front of west wing."
+		},
+		{
+			"filename" : "photos/empty-hallway-from-northwing.jpg",
+			"description" : "Empty hallway with tachymeter, seen from the north wing antenna array. Of course, no people were present in the hallway during measurement."
+		},
+		{
+			"filename" : "photos/empty-hallway-from-southwing.jpg",
+			"description" : "Empty hallway with tachymeter, seen from the perspective of the south wing antenna array."
+		},
+		{
+			"filename" : "photos/northwing-array.jpg",
+			"description" : "Frontal view of north wing antenna array."
+		},
+		{
+			"filename" : "photos/northwing-array-hallway-obstacle.jpg",
+			"description" : "Hallway with obstacle in north-west alignment seen from behind the north wing antenna array."
+		},
+		{
+			"filename" : "photos/obstacle-towards-northwest.jpg",
+			"description" : "Obstacle in north-west alignment configuration."
+		},
+		{
+			"filename" : "photos/obstacle-towards-southwest.jpg",
+			"description" : "Obstacle in south-west alignment configuration."
+		},
+		{
+			"filename" : "photos/robot-lobby.jpg",
+			"description" : "MOBTX robot in west wing, with parts of the lobby area on the left."
+		},
+		{
+			"filename" : "photos/southwing-array.jpg",
+			"description" : "Frontal view of south wing antenna array."
+		},
+		{
+			"filename" : "photos/lobby.jpg",
+			"description" : "Empty \"lobby\" area."
+		}
+	],
+	"thumbnail" : "photos/thumbnail.jpg"
+}
