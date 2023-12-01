@@ -586,7 +586,7 @@ def serialize_traced_paths(rx_pos, h_meas, traced_paths, squeeze_target_dim):
         Serialized traced paths
     """
 
-    # Map Paths objects to a single dictionnary of tensor
+    # Map Paths objects to a single dictionary of tensor
     dict_list_ = [x.to_dict() for x in traced_paths]
 
     # Target axis index
@@ -715,22 +715,22 @@ def deserialize_paths_as_tensor_dicts(serialized_item):
         Measured CSI
 
     spec_data : dict
-        Dictionnary of LoS and specular traced paths
+        Dictionary of LoS and specular traced paths
 
     diff_data : dict
-        Dictionnary of diffracted traced paths
+        Dictionary of diffracted traced paths
 
     scat_data : dict
-        Dictionnary of scattered traced paths
+        Dictionary of scattered traced paths
 
     tmp_spec_data : dict
-        Dictionnary of additional LoS and specular traced paths data
+        Dictionary of additional LoS and specular traced paths data
 
     tmp_diff_data : dict
-        Dictionnary of additional diffracted traced paths data
+        Dictionary of additional diffracted traced paths data
 
     tmp_scat_data : dict
-        Dictionnary of additional scattered traced paths data
+        Dictionary of additional scattered traced paths data
     """
 
     # Fields names and types
@@ -781,7 +781,7 @@ def deserialize_paths_as_tensor_dicts(serialized_item):
     members_dtypes.update({'h_meas' : tf.complex64})
 
     # Build dict of tensors
-    # Desiarializes the byte stream corresponding to each tensor
+    # Deserializes the byte stream corresponding to each tensor
     features = {k : tf.io.FixedLenFeature([], tf.string, default_value = '') for k in members_dtypes}
     record = tf.io.parse_single_example(serialized_item, features)
     members_data = {k : tf.io.parse_tensor(record[k], out_type = members_dtypes[k]) for k in members_dtypes}
@@ -804,7 +804,7 @@ def deserialize_paths_as_tensor_dicts(serialized_item):
 
 def tensor_dicts_to_traced_paths(scene, tensor_dicts):
     """
-    Creates Sionna `Paths` and `PathsTmpData` objets from dictionnaries
+    Creates Sionna `Paths` and `PathsTmpData` objects from dictionaries
 
     Input
     ------
@@ -812,7 +812,7 @@ def tensor_dicts_to_traced_paths(scene, tensor_dicts):
         Scene
 
     tensor_dicts : `list` of `dict`
-        List of dictionnaries, as retrieved when iterating over a dataset
+        List of dictionaries, as retrieved when iterating over a dataset
         of traced paths and using ``deserialize_paths_as_tensor_dicts()``
         to retrieve the data.
 
@@ -1005,7 +1005,7 @@ def pad_traced_paths(traced_paths, max_num_paths_spec, max_num_paths_diff, max_n
 
 def batchify(traced_paths_dicts):
     """
-    Batchifies traced paths dictionnaries
+    Batchifies traced paths dictionaries
 
     This utility enables sampling batches of receivers positions from the dataset of traced paths.
     It arranges the receivers as targets, by concatenating and reshaping the tensors accordingly.
@@ -1013,14 +1013,14 @@ def batchify(traced_paths_dicts):
     Input
     ------
     tensor_dicts : `list` of `dict`
-        List of dictionnaries, as retrieved when iterating over a dataset
+        List of dictionaries, as retrieved when iterating over a dataset
         of traced paths and using ``deserialize_paths_as_tensor_dicts()``
         to retrieve the data.
 
     Output
     -------
      : `list` of `dict`
-        List of dictionnaries
+        List of dictionaries
     """
 
     # Target axis index
@@ -1303,7 +1303,7 @@ def ds_ray_trace(scene, scaling_factor, params, test_set, batch_size,
     return rx_pos, h_rt, h_meas
 
 def cir2freq(a, tau):
-    """Converts complex basbeand channel impulse response to frequency response
+    """Converts complex baseband channel impulse response to frequency response
 
     Input
     -----
@@ -1354,7 +1354,9 @@ def plot_results_synthetic_data(train_dict, ground_truth, scene, save_figs=False
     for param in ground_truth["floor"]:
         plt.rcParams['font.size'] = 16
         plt.rcParams['font.family'] = 'serif'
-        plt.rcParams['text.usetex'] = False # activate to reproduce the figures from the paper
+        # activate to reproduce the exact figures from the paper
+        # with latex backend
+        plt.rcParams['text.usetex'] = False
         plt.figure(figsize=(7,4))
         legend = []
         for i, obj in enumerate(scene.objects):

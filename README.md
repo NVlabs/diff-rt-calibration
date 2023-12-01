@@ -1,6 +1,6 @@
 # Learning Radio Environments by Differentiable Ray Tracing
 
-This repository contains the source code to reproduce the results from the paper [Learning Radio Environments by Differentiable Ray Tracing [A]](https://arxiv.org)
+This repository contains the source code to reproduce the results from the paper [Learning Radio Environments by Differentiable Ray Tracing [A]](https://arxiv.org/abs/2311.18558)
 using the [Sionna&trade; link-level simulator [B]](https://nvlabs.github.io/sionna/) and its differentiable ray tracing extension [Sionna RT [C]](https://arxiv.org/abs/2303.11103).
 
 ## Abstract
@@ -63,7 +63,7 @@ Once the trainings are done, the figures from Section IV-C can be reproduced by 
     ├── results                                # Precomputed results and figures. Might be overwritten when notebooks are executed.
     │   ├── measurements                       # Results for measured data
     │   └── synthetic                          # Results for synthetic data
-    └── scenes                                 
+    └── scenes
         └── inue_simple                        # Simple 3D model of the INUE at Stuttgart University
             ├── inue_simple.blend              # Blender scene file
             ├── inue_simple.xml                # Mitsuba scene file
@@ -74,7 +74,7 @@ Once the trainings are done, the figures from Section IV-C can be reproduced by 
 
 ## References
 
-[A] J. Hoydis, F. Ait Aoudia, S. Cammerer, F. Euchner, M. Nimier-David, S. ten Brink, A. Keller, ["Learning Radio Environments by Differentiable Ray Tracing"](https://arxiv.org), Mar. 2023.
+[A] J. Hoydis, F. Ait Aoudia, S. Cammerer, F. Euchner, M. Nimier-David, S. ten Brink, A. Keller, ["Learning Radio Environments by Differentiable Ray Tracing"](https://arxiv.org/abs/2311.18558), Mar. 2023.
 
 [B] J. Hoydis, S. Cammerer, F. Ait Aoudia, A. Vem, N. Binder, G. Marcus, A. Keller, ["Sionna: An Open-Source Library for Next-Generation Physical Layer Research"](https://arxiv.org/abs/2203.11854), Mar. 2022.
 
