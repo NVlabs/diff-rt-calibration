@@ -97,6 +97,6 @@ If you use this software, please cite it as:
     year = {2023},
     month = DEC,
     journal = {arXiv preprint},
-    online = {https://arxiv.org/}
+    online = {https://arxiv.org/abs/2311.18558}
 }
 ```
