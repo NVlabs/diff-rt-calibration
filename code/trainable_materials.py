@@ -60,6 +60,7 @@ class TrainableMaterials(Layer):
         self.num_objects = num_objects
         self.embedding_size = embedding_size
         self.learn_scattering = learn_scattering
+        self.start_id = tf.reduce_min([obj.object_id for obj in scene.objects.values()])
 
     def complex_relative_permittivity(self, eta_prime, sigma):
         r"""
@@ -99,7 +100,11 @@ class TrainableMaterials(Layer):
         return epsilon_r, sigma, scattering_coefficient, xpd_coefficient
 
     def call(self, object_id, points):
-
+        
+        # Ensure that object_id starts at 0 and eliminate negative values
+        object_id -= self.start_id
+        object_id = tf.maximum(object_id, 0)
+        
         epsilon_r, sigma, scattering_coefficient, xpd_coefficient = self.get_params()
 
         # Compute complex relative permittivity
