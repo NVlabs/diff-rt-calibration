@@ -7,9 +7,9 @@ using the [Sionna&trade; link-level simulator [B]](https://nvlabs.github.io/sion
 Ray tracing (RT) is instrumental in 6G research in order to generate spatially-consistent and environment-specific channel impulse responses(CIRs). While acquiring accurate scene geometries is now relatively straightforward, determining material characteristics requires precise calibration using channel measurements. We therefore introduce a novel gradient-based calibration method, complemented by differentiable parametrizations of material properties, scattering and antenna patterns. Our method seamlessly integrates with differentiable ray tracers that enable the computation of derivatives of CIRs with respect to these parameters. Essentially, we approach field computation as a large computational graph wherein parameters are trainable akin to weights of a neural network (NN). We have validated our method using both synthetic data and real-world indoor channel measurements, employing a distributed multiple-input multiple-output (MIMO) channel sounder.
 
 ## Setup
-Running this code requires [Sionna 0.16](https://nvlabs.github.io/sionna/) or later.
+Running this code requires [Sionna 0.18](https://nvlabs.github.io/sionna/) or later.
 To run the notebooks on your machine, you also need [Jupyter](https://jupyter.org).
-We recommend Ubuntu 22.04, Python 3.10, and TensorFlow 2.13.
+We recommend Ubuntu 22.04, Python 3.10, and TensorFlow 2.15.
 
 ## How to use this repository
 
