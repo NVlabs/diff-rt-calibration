@@ -1359,11 +1359,16 @@ def plot_results_synthetic_data(train_dict, ground_truth, scene, save_figs=False
         plt.rcParams['text.usetex'] = False
         plt.figure(figsize=(7,4))
         legend = []
-        for i, obj in enumerate(scene.objects):
-            plt.plot(iterations, train_dict[obj][param], "-", c=f"C{i}")
-        for i, obj in enumerate(scene.objects):
-            plt.plot(iterations, np.ones_like(iterations)*ground_truth[obj][param], "--", c=f"C{i}")
-            legend.append(obj.capitalize())
+        start_id = np.min([obj.object_id for obj in scene.objects.values()])
+        for obj in scene.objects.values():
+            i = obj.object_id-start_id
+            name = obj.name
+            plt.plot(iterations, train_dict[name][param], "-", c=f"C{i}")
+        for obj in scene.objects.values():
+            i = obj.object_id-start_id
+            name = obj.name
+            plt.plot(iterations, np.ones_like(iterations)*ground_truth[name][param], "--", c=f"C{i}")
+            legend.append(name.capitalize())
         plt.legend(legend, loc="upper right");
         plt.xlabel("Iteration")
 
