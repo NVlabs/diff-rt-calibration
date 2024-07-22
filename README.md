@@ -93,7 +93,7 @@ If you use this software, please cite it as:
 ```bibtex
 @article{sionna-rt-calibration,
     title = {{Learning Radio Environments by Differentiable Ray Tracing}},
-    author = {Hoydis, Jakob and {Ait Aoudia}, Fayçal and Cammerer, Sebastian and Euchner, Florian, and Nimier-David, Merlin and ten Brink, Stephan, and Keller, Alexander},
+    author = {Hoydis, Jakob and {Ait Aoudia}, Fayçal and Cammerer, Sebastian and Euchner, Florian and Nimier-David, Merlin and ten Brink, Stephan and Keller, Alexander},
     year = {2023},
     month = DEC,
     journal = {arXiv preprint},
